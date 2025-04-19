@@ -1,0 +1,6 @@
+@BetterHealth.Net.Example_HostAddress = http://localhost:5118
+
+GET {{BetterHealth.Net.Example_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Dashboard</title>
+    <!-- Bulma CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet" />
+    <style>
+      /* Custom styles */
+      html {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: #f4f7fa;
+        padding: 2rem;
+      }
+
+      .status-card {
+        width: 250px;
+        height: 220px;
+        margin: 5px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+          0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border-radius: 4px;
+        overflow: hidden;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+        position: relative;
+      }
+
+      .status-card.status-card--hoverable:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
+      .status-card__status-bar {
+        height: 6px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .status-card__status-label {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .status-card__status-label::after {
+        content: "";
+        display: block;
+        margin-top: 6px;
+        margin-bottom: 10px;
+        height: 1px;
+        background-color: #eee;
+      }
+
+      .status-card__status--Healthy {
+        background-color: #7bed9f;
+      }
+
+      .status-card__status-text--Healthy {
+        color: #2ecc71;
+      }
+
+      .status-card__status--Degraded {
+        background-color: #eccc68;
+      }
+
+      .status-card__status-text--Degraded {
+        color: #f1c40f;
+      }
+
+      .status-card__status--Unhealthy {
+        background-color: #ff6b81;
+      }
+
+      .status-card__status-text--Unhealthy {
+        color: #e74c3c;
+      }
+
+      .status-card__title {
+        font-weight: bold;
+        text-align: left;
+        font-size: 16px;
+        padding-top: 10px;
+        margin-bottom: 2px;
+      }
+
+      .status-card__description {
+        text-align: left;
+        font-size: 14px;
+        color: #444;
+        flex-grow: 1;
+        display: flex;
+        line-height: 1.4;
+      }
+
+      .status-card__tags {
+        margin-top: 16px;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .status-card__tags .tag {
+        font-size: 11px;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="is-flex is-justify-content-flex-end mb-4"
+      style="position: absolute; right: 0; padding-right: 15px;"
+    >
+      <div class="dropdown" id="refresh-dropdown">
+        <div class="dropdown-trigger">
+          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span id="refresh-label">Refresh: 30s</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-content">
+            <a href="#" class="dropdown-item" data-interval="1">1s</a>
+            <a href="#" class="dropdown-item" data-interval="10">10s</a>
+            <a href="#" class="dropdown-item" data-interval="30">30s</a>
+            <a href="#" class="dropdown-item" data-interval="60">60s</a>
+            <a href="#" class="dropdown-item" data-interval="300">5m</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="title is-2 has-text-centered">Health Dashboard</h1>
+
+    <div class="has-text-centered">
+      <p>
+        Status:
+        <span id="overall-status" class="status">Loading...</span>
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div
+          class="is-fullwidth is-flex is-flex-wrap-wrap is-justify-content-center"
+          id="health-checks-container"
+        >
+          <!-- Cards will be added here -->
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

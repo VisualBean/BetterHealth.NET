@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net8.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Title>BetterHealth.NET</Title>
+	<RepositoryUrl>https://github.com/visualbean/Betterhealth.net</RepositoryUrl>
+	<Version>$(VersionPrefix)</Version>
+	<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="health-dashboard\**\*.*" />
+	</ItemGroup>
+
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="8.0.0" />
+	<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>
