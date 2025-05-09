@@ -22,7 +22,7 @@ namespace BetterHealth.Net.Example
     {
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            return Task.FromResult(HealthCheckResult.Unhealthy("Not Ok ❌"));
+            return Task.FromResult(HealthCheckResult.Unhealthy("Not too great ❌"));
         }
     }
 

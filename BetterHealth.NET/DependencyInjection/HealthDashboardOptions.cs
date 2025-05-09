@@ -1,11 +1,11 @@
-﻿namespace BetterHealth.NET;
+﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-using System.Diagnostics.CodeAnalysis;
+namespace BetterHealth.NET;
 
 public class HealthDashboardOptions
 {
-    [StringSyntax("Route")]
-    public string Pattern { get; set; } = "/health-dashboard";
-
-    public bool WithLogInterception { get; set; }
+    /// <summary>
+    /// Gets or sets a predicate that is used to filter the set of health checks executed.
+    /// </summary>
+    public Func<HealthCheckRegistration, bool>? Predicate { get; set; }
 }
