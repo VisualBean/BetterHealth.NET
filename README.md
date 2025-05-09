@@ -2,6 +2,8 @@
 A health dashboard built on top of `IHealthCheck`.  
 It works by fetching the health status from each healthcheck through the healthservice (internal to the healthcheck library),  
 and exposing this as an endpoint.
+
+![image](https://github.com/user-attachments/assets/db688134-e2d8-495e-a208-a906ca2c7c5a)
  
 ## Example
 ```csharp
