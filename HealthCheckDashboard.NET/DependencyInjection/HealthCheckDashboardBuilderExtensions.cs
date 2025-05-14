@@ -1,16 +1,24 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿namespace HealthCheckDashboard.NET;
 
-namespace BetterHealth.NET;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 
-public static class HealthDashboardBuilderExtensions
+public static class HealthCheckDashboardBuilderExtensions
 {
-    public static IEndpointConventionBuilder MapHealthDashboard(this WebApplication app,
-    [StringSyntax("Route")] string pattern = "/health-dashboard",
-    Action<HealthDashboardOptions>? configure = null)
+    /// <summary>
+    /// Adds a health check dashboard to the IEndpointRouteBuilder with the specified template.
+    /// </summary>
+    /// <param name="app">The <see cref="WebApplication"/> the dashboard shoUld be added to.</param>
+    /// <param name="pattern">The url-pattern for the dashboard.</param>
+    /// <param name="configure">Optional dashboard configuration.</param>
+    /// <returns></returns>
+    public static IEndpointConventionBuilder MapHealthCheckDashboard(
+        this WebApplication app,
+        [StringSyntax("Route")] string pattern = "/health-dashboard",
+        Action<HealthCheckDashboardOptions>? configure = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(pattern);
         if (!pattern.StartsWith('/'))
@@ -18,10 +26,10 @@ public static class HealthDashboardBuilderExtensions
             pattern = "/" + pattern;
         }
 
-        var options = new HealthDashboardOptions();
+        var options = new HealthCheckDashboardOptions();
         configure?.Invoke(options);
 
-        var assembly = typeof(HealthDashboardBuilderExtensions).Assembly;
+        var assembly = typeof(HealthCheckDashboardBuilderExtensions).Assembly;
         var embeddedProvider = new ManifestEmbeddedFileProvider(assembly, "health-dashboard");
         app.UseStaticFiles(new StaticFileOptions
         {

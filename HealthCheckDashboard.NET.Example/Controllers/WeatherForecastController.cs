@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace BetterHealth.Net.Example.Controllers
+namespace HealthCheckDashboard.NET.Example.Controllers
 {
     [ApiController]
     [Route("[controller]")]

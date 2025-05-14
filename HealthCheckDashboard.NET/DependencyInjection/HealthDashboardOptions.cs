@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
+﻿namespace HealthCheckDashboard.NET;
 
-namespace BetterHealth.NET;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-public class HealthDashboardOptions
+public class HealthCheckDashboardOptions
 {
     /// <summary>
     /// Gets or sets a predicate that is used to filter the set of health checks executed.

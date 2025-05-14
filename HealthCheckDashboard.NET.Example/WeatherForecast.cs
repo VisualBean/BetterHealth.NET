@@ -1,4 +1,4 @@
-namespace BetterHealth.Net.Example
+namespace HealthCheckDashboard.NET.Example
 {
     public class WeatherForecast
     {

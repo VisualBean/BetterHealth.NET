@@ -1,5 +1,5 @@
-# BetterHealth.NET
-A health dashboard built on top of `IHealthCheck`.  
+# HealthCheckDashboard.NET
+A health check dashboard built on top of `IHealthCheck`.  
 It works by fetching the health status from each healthcheck through the healthservice (internal to the healthcheck library),  
 and exposing this as an endpoint.
 
@@ -19,7 +19,7 @@ var app = builder.Build();
 app.MapHealthChecks("/health");
 
 // Use health dashboard and configure it as needed.
-app.MapHealthDashboard("/health-dashboard");
+app.MapHealthCheckDashboard("/health-dashboard");
 
 /* Normal auth, controller etc. setup.
 ...
@@ -37,7 +37,7 @@ Call `RequireAuthorization` to run Authorization Middleware on the health dashbo
 If a policy isn't provided, the default authorization policy is used:
 
 ```csharp
-  app.MapHealthDashboard("/health-dashboard")
+  app.MapHealthCheckDashboard("/health-dashboard")
       .RequireAuthorization();
 ```
 ## Filtering health checks
@@ -46,7 +46,7 @@ To show a subset of health checks, provide a function that returns a boolean to 
 
 The following example filters the health checks so that only those tagged with sample run:
 ```csharp
-app.MapHealthDashboard("/health-dashboard", new HealthDashboardOptions
+app.MapHealthCheckDashboard("/health-dashboard", new HealthDashboardOptions
 {
     Predicate = healthCheck => healthCheck.Tags.Contains("sample")
 });
