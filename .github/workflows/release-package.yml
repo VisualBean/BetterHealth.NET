@@ -17,7 +17,6 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.x
-          cache: true
       - name: Build project and pack NuGet package
         run: dotnet pack HealthCheckDashboard.NET/HealthCheckDashboard.NET.csproj -c Release -o out-HealthCheckDashboard
 
