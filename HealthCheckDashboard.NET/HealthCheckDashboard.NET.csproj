@@ -3,7 +3,6 @@
   <PropertyGroup>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<Nullable>enable</Nullable>
-	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	<Title>HealthCheckDashboard.NET</Title>
 	<RepositoryUrl>https://github.com/VisualBean/HealthCheckDashboard.NET</RepositoryUrl>
 	<Version>$(VersionPrefix)</Version>
