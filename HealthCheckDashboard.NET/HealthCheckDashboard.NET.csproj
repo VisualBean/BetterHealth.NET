@@ -4,17 +4,26 @@
 	<ImplicitUsings>enable</ImplicitUsings>
 	<Nullable>enable</Nullable>
 	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Title>BetterHealth.NET</Title>
-	<RepositoryUrl>https://github.com/visualbean/Betterhealth.net</RepositoryUrl>
+	<Title>HealthCheckDashboard.NET</Title>
+	<RepositoryUrl>https://github.com/VisualBean/HealthCheckDashboard.NET</RepositoryUrl>
 	<Version>$(VersionPrefix)</Version>
 	<GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
 	<AssemblyName>HealthCheckDashboard.NET</AssemblyName>
 	<RootNamespace>HealthCheckDashboard.NET</RootNamespace>
 	<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+	<Authors>VisualBean</Authors>
+	<Description>A small no nonsense dashboard built on top of dotnets own Healthchecks. Simple Dashboard with a card per healthcheck.</Description>
+	<PackageProjectUrl>https://github.com/VisualBean/HealthCheckDashboard.NET</PackageProjectUrl>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<PackageTags>healthcheck dashboard health</PackageTags>
+	<RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Include="health-dashboard\**\*.*" />
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
+		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 
